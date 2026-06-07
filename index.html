@@ -357,7 +357,10 @@
     </div>
 
     <script>
-       
+         document.addEventListener('DOMContentLoaded', function() {
+            // Hasło wygenerowane na serwerze
+            const correctPassword = 'ZielonyPiotrek123!'; // Poprawne hasło
+
             // Przypisanie event listener do przycisku
             const submitButton = document.getElementById('submitButton');
             if (submitButton) {
@@ -365,9 +368,20 @@
                     event.preventDefault();  // Zapobiegamy odświeżeniu strony
 
                     const userPassword = document.getElementById('passwordInput').value;
-                }}
-                   
-                    
+
+                    // Sprawdzanie hasła
+                    if (!userPassword) {
+                        alert('Proszę wprowadzić hasło');
+                    } else if (userPassword === correctPassword) {
+                        window.location.href = 'home.html'; // Przekierowanie na stronę domową
+                    } else {
+                        alert('Nieprawidłowe hasło');
+                    }
+                });
+            } else {
+                console.error("Przycisk o ID 'submitButton' nie został znaleziony.");
+            }
+        });        
     </script>
 
 
